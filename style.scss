@@ -16,19 +16,22 @@
 
 html {
   font-size: $base-font-size;
+  height: 100%;
 }
 
 body {
   font-family: $base-font;
   color: $base-color;
   line-height: 1.6;
+  height: 100%;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 740px;
+  max-width: 910px;
   padding: 0 10px;
   width: 100%;
+  min-height: calc(100% - 352px);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -398,7 +401,49 @@ nav {
   }
 }
 
+.category {
+  display: inline-block;
+  vertical-align: top;
+  width: 120px;
+  margin: 2em 20px 0 0;
+
+  > span {
+    color: #000;
+    font-weight: bold;
+  }
+
+  > ul {
+    > li {
+      margin: 0;
+      font-size: 16px;
+      margin: 5px 0;
+
+      > a {
+        color: gray;
+      }
+    }
+    > li:before {
+      content: '';
+    }
+  }
+
+
+}
+
 // Posts
+.empty_posts {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 50px 0;
+}
+
+.posts {
+  display: inline-block;
+  max-width: 740px;
+  width: 100%;
+}
+
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid $divider-color;
@@ -458,14 +503,16 @@ nav {
   padding: 2em 0;
   width: 100%;
   display: inline-block;
+  text-align: center;
+  position: relative;
 
   @include mobile {
     font-size: $small-font-size;
   }
 
   > .prev {
-    float: left;
-    width: 50%;
+    position: absolute;
+    left: 0;
     a {
       color: $pagination-color;
       &:hover, &:focus {
@@ -474,10 +521,14 @@ nav {
     }
   }
 
+  > .page_number {
+    display: inline-block;
+    width: 100px;
+  }
+
   > .next {
-    float: right;
-    text-align: right;
-    width: 50%;
+    position: absolute;
+    right: 0;
     a {
       color: $pagination-color;
       &:hover, &:focus {

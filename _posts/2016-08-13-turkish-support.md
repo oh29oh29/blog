@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Turkish Character Support"
+categories: [Java]
 tags: []
 comments: true
 ---

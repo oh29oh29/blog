@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Software Engineer
 
-### More Information
+<br>
 
-A place to include any other types of information that you'd like to include about yourself.
+#### Contact me
 
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+[hyukjae89@gmail.com](mailto:hyukjae89@gmail.com)
