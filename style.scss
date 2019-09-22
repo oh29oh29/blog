@@ -28,7 +28,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 910px;
+  max-width: 740px;
   padding: 0 10px;
   width: 100%;
   min-height: calc(100% - 352px);
@@ -399,35 +399,6 @@ nav {
       color: $blue;
     }
   }
-}
-
-.category {
-  display: inline-block;
-  vertical-align: top;
-  width: 120px;
-  margin: 2em 20px 0 0;
-
-  > span {
-    color: #000;
-    font-weight: bold;
-  }
-
-  > ul {
-    > li {
-      margin: 0;
-      font-size: 16px;
-      margin: 5px 0;
-
-      > a {
-        color: gray;
-      }
-    }
-    > li:before {
-      content: '';
-    }
-  }
-
-
 }
 
 // Posts
