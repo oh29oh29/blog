@@ -13,17 +13,17 @@ categories: [Java]
 
 1\. 녹색 사과만 필터링
 
-	```java
-	public static List<Apple> filterGreenApples(List<Apple> inventory) {
-	    List<Apple> result = new ArrayList<>();
-	    for (Apple apple : inventory) {
-	        if ("green".equals(apple.getColor())) {
-	            result.add(apple);
-	        }
-	    }
-	    return result;
-	}
-	```
+```java
+public static List<Apple> filterGreenApples(List<Apple> inventory) {
+    List<Apple> result = new ArrayList<>();
+    for (Apple apple : inventory) {
+        if ("green".equals(apple.getColor())) {
+            result.add(apple);
+        }
+    }
+    return result;
+}
+```
 
 <br>
 
