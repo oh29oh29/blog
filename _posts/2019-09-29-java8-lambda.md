@@ -4,10 +4,10 @@ title: 람다 표현식
 categories: [Java] 
 ---
 
-### 람다란?
+## 람다란?
 람다 표현식은 메소드로 전달할 수 있는 익명 함수를 단순화한 것이라고 할 수 있다.
 
-#### 람다의 특징
+### 람다의 특징
 
 1. 익명
 	- 이름이 없다.
@@ -20,9 +20,50 @@ categories: [Java]
 
 <br>
 
-### 함수형 인터페이스 사용
+### 람다의 기본 문법
 
-#### 1\. Function
+(parameters) -> expression 또는 (parameters) -> { statements; }
+
+<br>
+
+## 람다를 어디에 어떻게 사용할까?
+
+함수형 인터페이스라는 문맥에서 람다 표현식을 사용할 수 있다.
+
+<br>
+
+## 함수형 인터페이스 사용
+
+### 1\. Predicate
+
+java.util.function.Predicate<T>
+
+test라는 추상 메소드를 정의하며 test는 제네릭 형식 T의 객체를 인수로 받아 boolean을 반환한다.
+
+T 형식의 객체를 사용하는 boolean 표현식이 필요한 상황에서 Predicate 인터페이스를 활용 할 수 있다.
+
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+	boolean test(T t);
+}
+
+public static <T> List<T> map(List<T> list, Predicate<T> p) {
+	List<T> result = new ArrayList<>();
+
+	for (T s : list) {
+		if (p.test(s)) {
+			result.add(s);
+		}
+	}
+	return result;
+}
+
+Predicate<String> nonEmptyStringPredicate = (String s) -> !s.isEmpty();
+List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
+```
+
+### 2\. Function
 
 java.util.function.Function<T, R>
 
