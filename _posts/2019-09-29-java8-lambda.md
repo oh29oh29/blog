@@ -4,6 +4,11 @@ title: 람다 표현식
 categories: [Java] 
 ---
 
+익명 클래스로 다양한 동작을 구현할 수 있지만 코드가 깔끔하지는 않다. 
+더 깔끔한 코드로 동작을 구현하거나 전달할 수 있게 하는 자바 8의 새로운 기능인 람다 표현식이 있다. 
+
+<br>
+
 ## 람다란?
 람다 표현식은 메소드로 전달할 수 있는 익명 함수를 단순화한 것이라고 할 수 있다.
 
@@ -29,6 +34,13 @@ categories: [Java]
 ## 람다를 어디에 어떻게 사용할까?
 
 함수형 인터페이스라는 문맥에서 람다 표현식을 사용할 수 있다.
+
+### 1\. 함수형 인터페이스
+
+많은 디폴트 메소드가 있더라도 추상 메소드가 오직 하나인 인터페이스를 함수형 인터페이스라고 부른다.
+
+람다 표현식으로 함수형 인터페이스의 추상 메소드 구현을 직접 전달할 수 있으므로 전체 표현식을 함수형 인터페이스의 인스턴스로 취급(함수형 인터페이스를 
+concrete 구현한 클래스의 인스턴스)할 수 있다.
 
 <br>
 
@@ -63,7 +75,33 @@ Predicate<String> nonEmptyStringPredicate = (String s) -> !s.isEmpty();
 List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
 ```
 
-### 2\. Function
+### 2\. Consumer
+
+java.util.function.Consumer<T>
+
+제네릭 형식 T 객체를 받아서 void를 반환하는 accept라는 추상 메소드를 정의한다.
+
+T 형식의 객체를 인수로 받아서 어떤 동작을 수행하고 싶을 때 Consumer 인터페이스를 사용할 수 있다.
+
+```java
+@FunctionalInterface
+public interface Consumer<T> {
+	void accept(T t);
+}
+
+public static <T> void forEach(List<T> list, Consumer<T> c) {
+	for (T s : list) {
+		c.accept(t);
+	}
+}
+
+forEach(
+	Arrays.asList(1, 2, 3, 4, 5), 
+	(Integer i) -> System.out.println(i)
+);
+```
+
+### 3\. Function
 
 java.util.function.Function<T, R>
 
