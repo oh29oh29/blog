@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 동작 파리미터화 코드
+title: 동작 파라미터화 코드
 categories: [Java] 
 ---
 
